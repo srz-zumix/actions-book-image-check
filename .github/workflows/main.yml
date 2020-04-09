@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: reviewdog/action-cpplint@.
+    - uses: srz-zumix/actions-book-image-check@.
       with:
         path: ./test/format
         formats: "JPEG, PNG"
@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: reviewdog/action-cpplint@.
+    - uses: srz-zumix/actions-book-image-check@.
       with:
         path: ./test/format
         formats: "JPEG"
@@ -26,7 +26,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: reviewdog/action-cpplint@.
+    - uses: srz-zumix/actions-book-image-check@.
       with:
         path: ./test
         formats: "JPEG, PNG"
@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: reviewdog/action-cpplint@.
+    - uses: srz-zumix/actions-book-image-check@.
       with:
         path: ./test
         pixel_limit: 900000
