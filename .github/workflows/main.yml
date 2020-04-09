@@ -1,0 +1,41 @@
+name: GitHub Actions
+on:
+  pull_request:
+
+jobs:
+  all-ok:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: srz-zumix/actions-book-image-check@.
+      with:
+        path: ./test/format
+        formats: "JPEG, PNG"
+  format-ng:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: srz-zumix/actions-book-image-check@.
+      with:
+        path: ./test/format
+        formats: "JPEG"
+  dpi-ng:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: srz-zumix/actions-book-image-check@.
+      with:
+        path: ./test
+        formats: "JPEG, PNG"
+  pixel-ng:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: srz-zumix/actions-book-image-check@.
+      with:
+        path: ./test
+        pixel_limit: 900000
