@@ -12,14 +12,17 @@ inputs:
     description: |
       require dpi
     default: "350"
+    required: false
   pixel_limit:
     description: |
       maximum pixels
     default: "4000000"
+    required: false
   formats:
     description: |
       require formats (comma sparate)
     default: 'JPEG'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
