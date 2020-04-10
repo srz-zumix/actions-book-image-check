@@ -10,11 +10,11 @@ inputs:
   dpi:
     description: |
       require dpi
-    default: 350
+    default: "350"
   pixel_limit:
     description: |
       maximum pixels
-    default: 4000000
+    default: "4000000"
   formats:
     description: |
       require formats (comma sparate)
