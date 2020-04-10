@@ -8,8 +8,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - &extract_branch
-      name: Extract branch name
+    - name: Extract branch name
       id: extract_branch
       run: |
         NAME=${GITHUB_REF#refs/heads/}
