@@ -7,6 +7,7 @@ inputs:
     description: |
       image directory
     default: .
+    required: false
   dpi:
     description: |
       require dpi
