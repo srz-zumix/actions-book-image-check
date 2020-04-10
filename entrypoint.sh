@@ -14,8 +14,10 @@ export RESULT=0
 
 test() {
     FORMAT=$(identify -format %m $1)
-    X_DPI=$(identify -format %x $1)
-    Y_DPI=$(identify -format %y $1)
+    X_DPI_=$(identify -units PixelsPerInch -format %x $1)
+    Y_DPI_=$(identify -units PixelsPerInch -format %y $1)
+    X_DPI=${X_DPI_%.*}
+    Y_DPI=${Y_DPI_%.*}
     W=$(identify -format %w $1)
     H=$(identify -format %h $1)
     PIXEL=$(( $W * $H ))
@@ -34,7 +36,7 @@ test() {
         echo "::error:: $1: y dpi $Y_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
-    if [ $PIXEL != ${INPUT_PIXEL_LIMIT} ]; then
+    if [ $PIXEL -gt ${INPUT_PIXEL_LIMIT} ]; then
         echo "::error:: $1: pixel $PIXEL, required $INPUT_PIXEL_LIMIT."
         export RESULT=1
     fi
