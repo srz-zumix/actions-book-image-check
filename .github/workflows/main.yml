@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: srz-zumix/actions-book-image-check@.
+    - uses: srz-zumix/actions-book-image-check@${GITHUB_SHA}
       with:
         path: ./test/format
         formats: "JPEG, PNG"

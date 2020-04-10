@@ -13,30 +13,30 @@ echo "  formats: ${INPUT_FORMATS}"
 export RESULT=0
 
 test() {
-    FORMAT=$(identify -format %m $1)
-    X_DPI_=$(identify -units PixelsPerInch -format %x $1)
-    Y_DPI_=$(identify -units PixelsPerInch -format %y $1)
+    FORMAT=$(identify -format %m "$1")
+    X_DPI_=$(identify -units PixelsPerInch -format %x "$1")
+    Y_DPI_=$(identify -units PixelsPerInch -format %y "$1")
     X_DPI=${X_DPI_%.*}
     Y_DPI=${Y_DPI_%.*}
-    W=$(identify -format %w $1)
-    H=$(identify -format %h $1)
+    W=$(identify -format %w "$1")
+    H=$(identify -format %h "$1")
     PIXEL=$(( $W * $H ))
 
-    echo $1
+    echo "$1"
 
     if [[ ! " ${FORMATS[@]} " =~ " ${FORMAT} " ]]; then
         echo "::error:: $1: format $FORMAT, required $INPUT_FORMATS."
         export RESULT=1
     fi
-    if [ $X_DPI != ${INPUT_DPI} ]; then
+    if [ "$X_DPI" != "${INPUT_DPI}" ]; then
         echo "::error:: $1: x dpi $X_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
-    if [ $Y_DPI != ${INPUT_DPI} ]; then
+    if [ "$Y_DPI" != "${INPUT_DPI}" ]; then
         echo "::error:: $1: y dpi $Y_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
-    if [ $PIXEL -gt ${INPUT_PIXEL_LIMIT} ]; then
+    if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
         echo "::error:: $1: pixel $PIXEL, required $INPUT_PIXEL_LIMIT."
         export RESULT=1
     fi
