@@ -20,6 +20,8 @@ test() {
     H=$(identify -format %h $1)
     PIXEL=$(( $W * $H ))
 
+    echo $1
+
     if [[ ! " ${FORMATS[@]} " =~ " ${FORMAT} " ]]; then
         echo "::error:: $1: format $FORMAT, required $INPUT_FORMATS."
         export RESULT=1
