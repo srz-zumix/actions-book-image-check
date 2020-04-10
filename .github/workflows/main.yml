@@ -1,8 +1,6 @@
 name: GitHub Actions
 on:
   push:
-    branches-ignore:
-      - master
 
 jobs:
   all-ok:
