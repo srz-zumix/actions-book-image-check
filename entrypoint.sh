@@ -25,19 +25,19 @@ test() {
     echo "$1"
 
     if [[ ! " ${FORMATS[@]} " =~ " ${FORMAT} " ]]; then
-        echo "::error file=$1:: format $FORMAT, required $INPUT_FORMATS."
+        echo "::${INPUT_LEVEL} file=$1:: format $FORMAT, required $INPUT_FORMATS."
         export RESULT=1
     fi
     if [ "$X_DPI" != "${INPUT_DPI}" ]; then
-        echo "::error file=$1:: x dpi $X_DPI, required $INPUT_DPI."
+        echo "::${INPUT_LEVEL} file=$1:: x dpi $X_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
     if [ "$Y_DPI" != "${INPUT_DPI}" ]; then
-        echo "::error file=$1:: y dpi $Y_DPI, required $INPUT_DPI."
+        echo "::${INPUT_LEVEL} file=$1:: y dpi $Y_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
     if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
-        echo "::error file=$1:: pixel $PIXEL, required $INPUT_PIXEL_LIMIT."
+        echo "::${INPUT_LEVEL} file=$1:: pixel $PIXEL, required $INPUT_PIXEL_LIMIT."
         export RESULT=1
     fi
 }
