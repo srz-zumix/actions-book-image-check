@@ -14,6 +14,9 @@ export RESULT=0
 
 test() {
     FORMAT=$(identify -format %m "$1")
+    if [ $? != 0 ]; then
+        return
+    fi
     X_DPI_=$(identify -units PixelsPerInch -format %x "$1")
     Y_DPI_=$(identify -units PixelsPerInch -format %y "$1")
     X_DPI=$(echo "${X_DPI_}" | awk '{printf("%d",$1 + 0.5)}')
