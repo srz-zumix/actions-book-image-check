@@ -25,19 +25,19 @@ test() {
     echo "$1"
 
     if [[ ! " ${FORMATS[@]} " =~ " ${FORMAT} " ]]; then
-        echo "::error:: $1: format $FORMAT, required $INPUT_FORMATS."
+        echo "::error file=$1:: format $FORMAT, required $INPUT_FORMATS."
         export RESULT=1
     fi
     if [ "$X_DPI" != "${INPUT_DPI}" ]; then
-        echo "::error:: $1: x dpi $X_DPI, required $INPUT_DPI."
+        echo "::error file=$1:: x dpi $X_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
     if [ "$Y_DPI" != "${INPUT_DPI}" ]; then
-        echo "::error:: $1: y dpi $Y_DPI, required $INPUT_DPI."
+        echo "::error file=$1:: y dpi $Y_DPI, required $INPUT_DPI."
         export RESULT=1
     fi
     if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
-        echo "::error:: $1: pixel $PIXEL, required $INPUT_PIXEL_LIMIT."
+        echo "::error file=$1:: pixel $PIXEL, required $INPUT_PIXEL_LIMIT."
         export RESULT=1
     fi
 }
@@ -46,4 +46,8 @@ for f in $(find . -type f); do
     test $f
 done
 
-# exit $RESULT
+if "${INPUT_EXIT_CODE_0}"; then
+    exit 0
+fi
+
+exit $RESULT

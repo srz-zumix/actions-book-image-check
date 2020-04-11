@@ -5,32 +5,50 @@ author: 'srz-zumix'
 inputs:
   path:
     description: |
-      image directory
+      image directory path.
+      default is '.'
     default: .
+    required: false
+  level:
+    description: |
+      report level (warning or error).
+      default is 'error'
+    default: "error"
     required: false
   dpi:
     description: |
-      require dpi
+      require dpi.
+      default is '350'
     default: "350"
     required: false
   pixel_limit:
     description: |
-      maximum pixels
+      maximum pixels.
+      default is '4000000'
     default: "4000000"
     required: false
   formats:
     description: |
-      require formats (comma sparate)
+      require formats (comma sparate).
+      default is 'JPEG'
     default: 'JPEG'
+    required: false
+  exit_code_0:
+    description: |
+      always exit code 0.
+      default is 'true'
+    default: "true"
     required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.path }}
+    - ${{ inputs.level }}
     - ${{ inputs.dpi }}
     - ${{ inputs.pixel_limit }}
     - ${{ inputs.formats }}
+    - ${{ inputs.exit_code_0 }}
 branding:
   icon: 'plus-circle'
   color: 'blue'
