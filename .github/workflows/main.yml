@@ -1,6 +1,6 @@
 name: GitHub Actions
 on:
-  push:
+  pull_request:
 
 jobs:
   all-ok:
@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: srz-zumix/actions-book-image-check@master
+    - uses: ./
       with:
         path: ./test/format
         formats: "JPEG, PNG"
@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: srz-zumix/actions-book-image-check@.
+    - uses: ./
       with:
         path: ./test/format
         formats: "JPEG"
@@ -26,7 +26,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: srz-zumix/actions-book-image-check@.
+    - uses: ./
       with:
         path: ./test
         formats: "JPEG, PNG"
@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - uses: srz-zumix/actions-book-image-check@.
+    - uses: ./
       with:
-        path: ./test
+        path: ./test/format/jpeg
         pixel_limit: 900000
