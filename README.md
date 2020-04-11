@@ -52,6 +52,8 @@ default is 'true'
 
 ## Example
 
+![image](https://user-images.githubusercontent.com/1439172/79042323-b3341c80-7c31-11ea-8bce-343cb2ccc791.png)
+
 ```yaml
 name: GitHub Actions
 on:
