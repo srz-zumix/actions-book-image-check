@@ -50,5 +50,5 @@ runs:
     - ${{ inputs.formats }}
     - ${{ inputs.exit_code_0 }}
 branding:
-  icon: 'plus-circle'
-  color: 'blue'
+  icon: 'image'
+  color: 'green'
