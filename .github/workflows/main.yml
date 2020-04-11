@@ -8,12 +8,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@master
-    - name: Extract branch name
-      id: extract_branch
-      run: |
-        NAME=${GITHUB_REF#refs/heads/}
-        echo "##[set-output name=branch;]$(echo ${NAME#refs/tags/})"
-    - uses: srz-zumix/actions-book-image-check@${{ steps.extract_branch.outputs.branch }}
+    - uses: srz-zumix/actions-book-image-check@feature/test
       with:
         path: ./test/format
         formats: "JPEG, PNG"
