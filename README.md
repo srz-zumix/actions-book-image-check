@@ -1,5 +1,7 @@
 # actions-book-image-check
 
+[![GitHub Actions Status](https://github.com/srz-zumix/actions-book-image-check/workflows/Example/badge.svg?branch=master)](https://github.com/srz-zumix/actions-book-image-check/actions?query=workflow%3A%22Example%22)
+
 本の執筆において画像ファイルのフォーマット・DPI など制限がある場合のチェック用アクション
 
 ```yaml

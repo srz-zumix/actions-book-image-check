@@ -1,0 +1,16 @@
+name: Example
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: srz-zumix/actions-book-image-check@master
+      with:
+        path: ./test/format
+        formats: "JPEG, PNG"
