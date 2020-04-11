@@ -46,4 +46,4 @@ for f in $(find . -type f); do
     test $f
 done
 
-exit $RESULT
+# exit $RESULT
