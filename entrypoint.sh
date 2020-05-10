@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd "${GITHUB_WORKSPACE}" || exit
-cd ${INPUT_PATH}
+cd "${INPUT_PATH}" || exit 1
 
 FORMATS=( `echo ${INPUT_FORMATS} | tr -s ',' ' '` )
 
