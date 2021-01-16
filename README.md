@@ -29,6 +29,13 @@ Optional.
 require dpi.
 default is '350'
 
+### `longside`
+
+Optional.
+
+min longside pixel.
+default is '1000'
+
 ### `plixel_limit`
 
 Optional.
