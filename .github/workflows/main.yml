@@ -41,7 +41,8 @@ jobs:
       with:
         path: ./test/format/png
         longside: 500
-        exit_code_0: false
+        formats: "PNG"
+        level: warning
   pixel-ng:
     runs-on: ubuntu-latest
     steps:
@@ -51,4 +52,4 @@ jobs:
       with:
         path: ./test/format/jpeg
         pixel_limit: 900000
-        exit_code_0: false
+        level: warning
