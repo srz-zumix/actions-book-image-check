@@ -11,6 +11,7 @@ jobs:
     - uses: ./
       with:
         path: ./test/format
+        longside: 300
         formats: "JPEG, PNG"
   format-ng:
     runs-on: ubuntu-latest
@@ -20,6 +21,7 @@ jobs:
     - uses: ./
       with:
         path: ./test/format
+        longside: 300
         formats: "JPEG"
   dpi-ng:
     runs-on: ubuntu-latest
@@ -30,6 +32,18 @@ jobs:
       with:
         path: ./test
         formats: "JPEG, PNG"
+        longside: 300
+        level: warning
+  longside-ng:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: ./
+      with:
+        path: ./test/format/png
+        longside: 500
+        formats: "PNG"
         level: warning
   pixel-ng:
     runs-on: ubuntu-latest
@@ -39,5 +53,6 @@ jobs:
     - uses: ./
       with:
         path: ./test/format/jpeg
+        longside: 300
         pixel_limit: 900000
-        exit_code_0: false
+        level: warning

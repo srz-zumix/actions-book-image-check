@@ -9,6 +9,7 @@ echo "Requirements:"
 echo "      dpi: ${INPUT_DPI}"
 echo "    pixel: ${INPUT_PIXEL_LIMIT}"
 echo "  formats: ${INPUT_FORMATS}"
+echo " longside: ${INPUT_LONGSIDE}"
 
 export RESULT=0
 
@@ -42,6 +43,12 @@ test() {
     if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
         echo "::${INPUT_LEVEL} file=$1:: pixel $PIXEL, limit to < $INPUT_PIXEL_LIMIT."
         export RESULT=1
+    fi
+    if [ "$W" -lt "${INPUT_LONGSIDE}" ]; then
+      if [ "$H" -lt "${INPUT_LONGSIDE}" ]; then
+        echo "::${INPUT_LEVEL} file=$1:: longside ($W x $H), limit to >= $INPUT_LONGSIDE."
+        export RESULT=1
+      fi
     fi
 }
 
