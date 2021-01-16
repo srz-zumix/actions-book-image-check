@@ -51,5 +51,6 @@ jobs:
     - uses: ./
       with:
         path: ./test/format/jpeg
+        longside: 300
         pixel_limit: 900000
         level: warning
