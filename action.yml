@@ -21,6 +21,12 @@ inputs:
       default is '350'
     default: "350"
     required: false
+  longside:
+    description: |
+      min longside pixel.
+      default is '1000'
+    default: "1000"
+    required: false
   pixel_limit:
     description: |
       maximum pixels.
@@ -46,6 +52,7 @@ runs:
     - ${{ inputs.path }}
     - ${{ inputs.level }}
     - ${{ inputs.dpi }}
+    - ${{ inputs.longside }}
     - ${{ inputs.pixel_limit }}
     - ${{ inputs.formats }}
     - ${{ inputs.exit_code_0 }}
