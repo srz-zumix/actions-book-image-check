@@ -21,6 +21,7 @@ jobs:
     - uses: ./
       with:
         path: ./test/format
+        longside: 300
         formats: "JPEG"
   dpi-ng:
     runs-on: ubuntu-latest
@@ -31,6 +32,7 @@ jobs:
       with:
         path: ./test
         formats: "JPEG, PNG"
+        longside: 300
         level: warning
   longside-ng:
     runs-on: ubuntu-latest
