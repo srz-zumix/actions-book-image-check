@@ -13,6 +13,7 @@ jobs:
         path: ./test/format
         longside: 300
         formats: "JPEG, PNG"
+        always_success: true
   format-ng:
     runs-on: ubuntu-latest
     steps:
@@ -23,6 +24,7 @@ jobs:
         path: ./test/format
         longside: 300
         formats: "JPEG"
+        always_success: true
   dpi-ng:
     runs-on: ubuntu-latest
     steps:
@@ -34,6 +36,7 @@ jobs:
         formats: "JPEG, PNG"
         longside: 300
         level: warning
+        always_success: true
   longside-ng:
     runs-on: ubuntu-latest
     steps:
@@ -45,6 +48,7 @@ jobs:
         longside: 500
         formats: "PNG"
         level: warning
+        always_success: true
   pixel-ng:
     runs-on: ubuntu-latest
     steps:
@@ -56,3 +60,4 @@ jobs:
         longside: 300
         pixel_limit: 900000
         level: warning
+        always_success: true
