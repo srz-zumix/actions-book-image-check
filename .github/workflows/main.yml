@@ -25,6 +25,17 @@ jobs:
         longside: 300
         formats: "JPEG"
         always_success: true
+  format-ng2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: ./
+      with:
+        path: ./test/format/jpeg
+        longside: 300
+        formats: "J, PEG"
+        always_success: true
   dpi-ng:
     runs-on: ubuntu-latest
     steps:

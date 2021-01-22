@@ -29,7 +29,7 @@ test() {
     echo "$1"
 
     if [ -n "$INPUT_FORMATS" ]; then
-        if [[ ! " ${FORMATS[@]} " =~ ${FORMAT} ]]; then
+        if [[ ! " ${FORMATS[*]} " =~ ${FORMAT} ]]; then
             echo "::${INPUT_LEVEL} file=$1:: format $FORMAT, required $INPUT_FORMATS."
             export RESULT=1
         fi
