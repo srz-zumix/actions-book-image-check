@@ -39,11 +39,11 @@ inputs:
       default is 'JPEG'
     default: 'JPEG'
     required: false
-  exit_code_0:
+  always_success:
     description: |
       always exit code 0.
-      default is 'true'
-    default: "true"
+      default is 'false'
+    default: "false"
     required: false
 runs:
   using: 'docker'

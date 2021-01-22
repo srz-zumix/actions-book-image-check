@@ -56,7 +56,7 @@ for f in $(find . -type f); do
     test $f
 done
 
-if "${INPUT_EXIT_CODE_0}"; then
+if "${INPUT_ALWAYS_SUCCESS}"; then
     exit 0
 fi
 
