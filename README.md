@@ -50,12 +50,12 @@ Optional.
 require formats (comma sparate).
 default is 'JPEG'
 
-### `exit_code_0`
+### `always_success`
 
 Optional.
 
 always exit code 0.
-default is 'true'
+default is 'false'
 
 ## Example
 
