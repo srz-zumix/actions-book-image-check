@@ -25,6 +25,17 @@ jobs:
         longside: 300
         formats: "JPEG"
         always_success: true
+  format-ng2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: ./
+      with:
+        path: ./test/format/jpeg
+        longside: 300
+        formats: "J, PEG"
+        always_success: true
   dpi-ng:
     runs-on: ubuntu-latest
     steps:
@@ -61,3 +72,17 @@ jobs:
         pixel_limit: 900000
         level: warning
         always_success: true
+  no-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: ./
+      with:
+        path: ./test/
+        dpi: 0
+        longside: 0
+        pixel_limit: 0
+        formats: ""
+        level: error
+        always_success: false
