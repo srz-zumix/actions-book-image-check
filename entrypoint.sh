@@ -44,7 +44,7 @@ test() {
             export RESULT=1
         fi
     fi
-    if [ "$PIXEL" != "0" ]; then
+    if [ "$INPUT_PIXEL_LIMIT" != "0" ]; then
         if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
             echo "::${INPUT_LEVEL} file=$1:: pixel $PIXEL, limit to < $INPUT_PIXEL_LIMIT."
             export RESULT=1
