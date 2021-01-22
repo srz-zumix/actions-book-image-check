@@ -61,3 +61,17 @@ jobs:
         pixel_limit: 900000
         level: warning
         always_success: true
+  no-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: clone
+      uses: actions/checkout@master
+    - uses: ./
+      with:
+        path: ./test/
+        dpi: 0
+        longside: 0
+        pixel_limit: 0
+        formats: ""
+        level: error
+        always_success: false

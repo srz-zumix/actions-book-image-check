@@ -18,24 +18,28 @@ inputs:
   dpi:
     description: |
       require dpi.
+      if dpi==0, skip this check.
       default is '350'
     default: "350"
     required: false
   longside:
     description: |
       min longside pixel.
+      if longside==0, skip this check.
       default is '1000'
     default: "1000"
     required: false
   pixel_limit:
     description: |
       maximum pixels.
+      if pixel_limit==0, skip this check.
       default is '4000000'
     default: "4000000"
     required: false
   formats:
     description: |
       require formats (comma sparate).
+      if empty, skip this check.
       default is 'JPEG'
     default: 'JPEG'
     required: false

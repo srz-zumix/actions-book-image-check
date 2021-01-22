@@ -28,27 +28,35 @@ test() {
 
     echo "$1"
 
-    if [[ ! " ${FORMATS[@]} " =~ " ${FORMAT} " ]]; then
-        echo "::${INPUT_LEVEL} file=$1:: format $FORMAT, required $INPUT_FORMATS."
-        export RESULT=1
+    if [ -n "$FORMATS" ]; then
+        if [[ ! " ${FORMATS[@]} " =~ " ${FORMAT} " ]]; then
+            echo "::${INPUT_LEVEL} file=$1:: format $FORMAT, required $INPUT_FORMATS."
+            export RESULT=1
+        fi
     fi
-    if [ "$X_DPI" != "${INPUT_DPI}" ]; then
-        echo "::${INPUT_LEVEL} file=$1:: x dpi $X_DPI, required $INPUT_DPI."
-        export RESULT=1
+    if [ "$INPUT_DPI" != "0" ]; then
+        if [ "$X_DPI" != "${INPUT_DPI}" ]; then
+            echo "::${INPUT_LEVEL} file=$1:: x dpi $X_DPI, required $INPUT_DPI."
+            export RESULT=1
+        fi
+        if [ "$Y_DPI" != "${INPUT_DPI}" ]; then
+            echo "::${INPUT_LEVEL} file=$1:: y dpi $Y_DPI, required $INPUT_DPI."
+            export RESULT=1
+        fi
     fi
-    if [ "$Y_DPI" != "${INPUT_DPI}" ]; then
-        echo "::${INPUT_LEVEL} file=$1:: y dpi $Y_DPI, required $INPUT_DPI."
-        export RESULT=1
+    if [ "$PIXEL" != "0" ]; then
+        if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
+            echo "::${INPUT_LEVEL} file=$1:: pixel $PIXEL, limit to < $INPUT_PIXEL_LIMIT."
+            export RESULT=1
+        fi
     fi
-    if [ "$PIXEL" -gt "${INPUT_PIXEL_LIMIT}" ]; then
-        echo "::${INPUT_LEVEL} file=$1:: pixel $PIXEL, limit to < $INPUT_PIXEL_LIMIT."
-        export RESULT=1
-    fi
-    if [ "$W" -lt "${INPUT_LONGSIDE}" ]; then
-      if [ "$H" -lt "${INPUT_LONGSIDE}" ]; then
-        echo "::${INPUT_LEVEL} file=$1:: longside ($W x $H), limit to >= $INPUT_LONGSIDE."
-        export RESULT=1
-      fi
+    if [ "$INPUT_LONGSIDE" != "0" ]; then
+        if [ "$W" -lt "${INPUT_LONGSIDE}" ]; then
+        if [ "$H" -lt "${INPUT_LONGSIDE}" ]; then
+            echo "::${INPUT_LEVEL} file=$1:: longside ($W x $H), limit to >= $INPUT_LONGSIDE."
+            export RESULT=1
+        fi
+        fi
     fi
 }
 
