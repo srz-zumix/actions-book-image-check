@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# export settings
+test/** export-ignore
+.github/** export-ignore
+*.md export-ignore
