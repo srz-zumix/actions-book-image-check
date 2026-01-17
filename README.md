@@ -1,8 +1,6 @@
 # book-image-check-actions
 
-[![GitHub Actions Status](https://github.com/srz-zumix/actions-book-image-check/workflows/Example/badge.svg?branch=master)](https://github.com/srz-zumix/actions-book-image-check/actions?query=workflow%3A%22Example%22)
 [![Release](https://img.shields.io/github/release/srz-zumix/actions-book-image-check.svg?maxAge=43200)](https://github.com/srz-zumix/actions-book-image-check/releases)
-
 
 本の執筆において画像ファイルのフォーマット・DPI など制限がある場合のチェック用アクション
 
