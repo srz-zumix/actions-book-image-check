@@ -1,13 +1,18 @@
-name: GitHub Actions
+name: Test
 on:
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   all-ok:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test/format
@@ -18,7 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test/format
@@ -29,7 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test/format/jpeg
@@ -40,7 +49,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test
@@ -52,7 +63,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test/format/png
@@ -64,7 +77,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test/format/jpeg
@@ -76,7 +91,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
+      uses: actions/checkout@v6
+      with:
+        persist-credentials: false
     - uses: ./
       with:
         path: ./test/
