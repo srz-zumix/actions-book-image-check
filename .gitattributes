@@ -4,3 +4,5 @@
 test/** export-ignore
 .github/** export-ignore
 *.md export-ignore
+*.yaml export-ignore
+zizmor.yml export-ignore
