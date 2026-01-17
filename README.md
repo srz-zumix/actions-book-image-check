@@ -72,7 +72,7 @@ jobs:
     steps:
     - name: clone
       uses: actions/checkout@v6
-    - uses: srz-zumix/book-image-check-actions@v0
+    - uses: srz-zumix/book-image-check-actions@v2
       with:
         path: ./test/format
         formats: "JPEG, PNG" # default JPEG
