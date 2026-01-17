@@ -1,22 +1,37 @@
-name: GitHub Actions - reviewdog
+name: reviewdog
 on:
   pull_request:
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   shellcheck:
-    name: runner / shellcheck
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: reviewdog/action-shellcheck@4c07458293ac342d477251099501a718ae5ef86e # v1.32.0
         with:
-          github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           path: "."
           pattern: "*.sh"
           exclude: "./.git/*"
+
+  actionlint:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: reviewdog/action-actionlint@83e4ed25b168066ad8f62f5afbb29ebd8641d982 # v1.69.1
+        with:
+          reporter: github-pr-review
