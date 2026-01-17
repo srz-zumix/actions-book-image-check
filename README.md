@@ -1,4 +1,4 @@
-# actions-book-image-check
+# book-image-check-actions
 
 [![GitHub Actions Status](https://github.com/srz-zumix/actions-book-image-check/workflows/Example/badge.svg?branch=master)](https://github.com/srz-zumix/actions-book-image-check/actions?query=workflow%3A%22Example%22)
 [![Release](https://img.shields.io/github/release/srz-zumix/actions-book-image-check.svg?maxAge=43200)](https://github.com/srz-zumix/actions-book-image-check/releases)
@@ -71,8 +71,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: clone
-      uses: actions/checkout@master
-    - uses: srz-zumix/actions-book-image-check@master
+      uses: actions/checkout@v6
+    - uses: srz-zumix/book-image-check-actions@v0
       with:
         path: ./test/format
         formats: "JPEG, PNG" # default JPEG
